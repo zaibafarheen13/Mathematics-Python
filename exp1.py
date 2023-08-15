@@ -1,101 +1,81 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Jan 10 08:08:19 2022
+Created on Wed Jan 12 09:25:02 2022
 
 @author: Zaiba Farheen
-MATHEMATICS PAPER-7
-EXPERIMENT - 01
-VECTOR SPACES
-LINEAR COMBINATION
-
+BISECTION METHOD(BOLZANO METHOD)
 """
 #%%
 #ques1
-import numpy as np
-u=[1,2,3]
-v=[2,3,7]
-w=[3,5,6]
-vector=[3,7,-4]
-A = np.column_stack([u,v,w])
-x = np.linalg.lstsq(A, vector,rcond=None)
-print("C1 ,C2 and C3 are",x[0])
-c1=round(x[0][0],1)
-c2=round(x[0][1],1)
-c3=round(x[0][2],1)
-
-for i in range(2):
-    if (u[i]*c1) + (v[i]*c2) + (w[i]*c3) == (vector[i]):
-       Flag=True
-    else:
-       Flag=False
-if Flag==True:
-    print("Given vector can  be expressed as Linear Combination of vectors")
-else:
-    print("Given vector can't  be expressed as Linear Combination of vectors")
-#%%
+def f(x):
+    return 10-x**2
+def bisection(a,b):
+    if(f(a)*f(b)>=0):
+        print("Incorrect assumption of a and b")
+        return
+    c=a
+    for i in range(10):
+        c=(a+b)/2
+        if f(c)==0:
+            break
+        elif f(c)*f(a)<0:
+            b=c
+            print(c)
+        else:
+            a=c
+            print(c)
+    print("Value of the root =",'%.4f'%c)
+        
+a=3
+b=4
+bisection(a,b)
+#%% 
 #ques2
-import numpy as np
-u=[1,-3,2]
-v=[2,-1,1]
-vector=[1,7,-4]
-A = np.column_stack([u,v])
-x = np.linalg.lstsq(A, vector,rcond=None)
-print("C1 and C2 are",x[0])
-c1=round(x[0][0],1)
-c2=round(x[0][1],1)
-#print(c1,c2)
-
-for i in range(2):
-    if (u[i]*c1)+(v[i]*c2)==vector[i]:
-       Flag=True
-    else:
-        Flag=False
-if Flag==True:
-    print("Given vector can  be expressed as Linear Combination of vectors")
-else:
-    print("Given vector can't  be expressed as Linear Combination of vectors") 
-#%%
+from math import log10
+def f(x):
+    return x*log10(x)-1.2
+def bisection(a,b):
+    if(f(a)*f(b)>=0):
+        print("Incorrect assumption of a and b")
+        return
+    c=a
+    for i in range(10):
+        c=(a+b)/2
+        if f(c)==0:
+            break
+        elif f(c)*f(a)<0:
+            b=c
+            print(c)
+        else:
+            a=c
+            print(c)
+    print("Value of the root =",'%.4f'%c)
+        
+a=2
+b=3
+bisection(a,b)
+#%%        
 #ques3
-import numpy as np
-u=[1,2,-1]
-v=[6,4,2]
-vector=[4,-1,8]
-A = np.column_stack([u,v])
-x = np.linalg.lstsq(A, vector,rcond=None)
-print("C1 and C2 are",x[0])
-c1=round(x[0][0],1)
-c2=round(x[0][1],1)
-#print(c1,c2)
-
-for i in range(2):
-    if (u[i]*c1)+(v[i]*c2)==vector[i]:
-       Flag=True
-    else:
-        Flag=False
-if Flag==True:
-    print("Given vector can  be expressed as Linear Combination of vectors")
-else:
-    print("Given vector can't  be expressed as Linear Combination of vectors") 
-#%%
-#ques4
-import numpy as np
-u=[1,1,1]
-v=[1,2,3]
-w=[2,-1,1]
-vector=[1,-2,5]
-A = np.column_stack([u,v,w])
-x = np.linalg.lstsq(A, vector,rcond=None)
-print("C1 ,C2 and C3 are",x[0])
-c1=round(x[0][0],1)
-c2=round(x[0][1],1)
-c3=round(x[0][2],1)
-
-for i in range(2):
-    if (u[i]*c1) + (v[i]*c2) + (w[i]*c3) == (vector[i]):
-       Flag=True
-    else:
-       Flag=False
-if Flag==True:
-    print("Given vector can  be expressed as Linear Combination of vectors")
-else:
-    print("Given vector can't  be expressed as Linear Combination of vectors")
+from math import *
+def f(x):
+    return x-cos(x)-10
+def bisection(a,b):
+    if(f(a)*f(b)>=0):
+        print("Incorrect assumption of a and b")
+        return
+    c=a
+    for i in range(10):
+        c=(a+b)/2
+        if f(c)==0:
+            break
+        elif f(c)*f(a)<0:
+            b=c
+            print(c)
+        else:
+            a=c
+            print(c)
+    print("Value of the root =",'%.4f'%c)
+        
+a=9
+b=10
+bisection(a,b)
